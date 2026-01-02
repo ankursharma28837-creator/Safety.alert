@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Error</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 15%;
+        }
+        h1 {
+            font-size: 50px;
+            animation: blink 1s infinite;
+        }
+        p {
+            font-size: 22px;
+            color: white;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>⚠ SYSTEM ERROR ⚠</h1>
+    <p>Your system has crashed</p>
+    <p>Please restart your computer</p>
+
+    <script>
+        function speakError() {
+            let msg = new SpeechSynthesisUtterance(
+                "System error. Your system has crashed."
+            );
+            msg.lang = "en-US";
+            msg.rate = 0.9;
+            window.speechSynthesis.speak(msg);
+        }
+
+        setTimeout(speakError, 1000);
+    </script>
+
+</body>
+</html>
